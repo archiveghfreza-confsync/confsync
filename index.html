@@ -1082,38 +1082,42 @@
             if (messages.length === 0) {
 
                 messagesArea.innerHTML = `
-    <div style="
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        height:100%;
-        color:#8e8ea0;
-        text-align:center;
-        padding:40px;
-    ">
-        <div style="font-size:48px; margin-bottom:16px;">💬</div>
+            <div style="
+                display:flex;
+                flex-direction:column;
+                align-items:center;
+                justify-content:center;
+                height:100%;
+                color:#8e8ea0;
+                text-align:center;
+                padding:40px;
+            ">
+                <div style="font-size:48px; margin-bottom:16px;">
+                    <img src="assets/centericon.png"
+                         alt="Confsync Logo"
+                         style="width:280px;height:280px;display:block;margin:0 auto 10px;border-radius:50%;" />
+                </div>
 
-        <h3 style="
-            color:#202123;
-            font-weight:500;
-            margin-bottom:8px;
-        ">
-            ${escapeHtml(
+                <h3 style="
+                    color:#202123;
+                    font-weight:500;
+                    margin-bottom:8px;
+                ">
+                    ${escapeHtml(
                     currentConference
                         ? currentConference.nameFa
                         : 'Select a Conference'
                 )}
-        </h3>
+                </h3>
 
-        <p style="font-size:14px; max-width:400px;">
-            ${currentConference
+                <p style="font-size:14px; max-width:400px;">
+                    ${currentConference
                         ? 'Ask your first question about this conference.'
                         : 'Select a conference from the sidebar to start.'
                     }
-        </p>
-    </div>
-`;
+                </p>
+            </div>
+        `;
 
                 return;
             }
