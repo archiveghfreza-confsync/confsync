@@ -404,43 +404,43 @@
     </div>
 
     <div class="form-box">
-      <form onsubmit="event.preventDefault(); alert('درخواست شما ثبت شد. به‌زودی با شما تماس گرفته می‌شود.'); this.reset();">
-
+      <form id="confForm">
+      
         <div class="form-grid">
-
+      
           <div class="field">
             <label>نام و نام خانوادگی <span class="req">*</span></label>
-            <input type="text" placeholder="مثال: سارا محمدی" required>
+            <input type="text" name="full_name" placeholder="مثال: سارا محمدی" required>
           </div>
-
+      
           <div class="field">
             <label>شماره تماس <span class="req">*</span></label>
-            <input type="tel" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" required>
+            <input type="tel" name="phone" placeholder="مثال: ۰۹۱۲۳۴۵۶۷۸۹" required>
           </div>
-
+      
           <div class="field">
             <label>آدرس ایمیل <span class="req">*</span></label>
-            <input type="email" placeholder="example@mail.com" required>
+            <input type="email" name="email" placeholder="example@mail.com" required>
           </div>
-
+      
           <div class="field">
             <label>سازمان یا دانشگاه <span class="req">*</span></label>
-            <input type="text" placeholder="مثال: دانشگاه تهران" required>
+            <input type="text" name="organization" placeholder="مثال: دانشگاه تهران" required>
           </div>
-
+      
           <div class="field full">
             <label>شرح و درخواست <span class="req">*</span></label>
-            <textarea placeholder="لطفاً توضیح دهید که درخواست شما برای استفاده از ConfSync در چه رویداد یا کنگره‌ای است و چه انتظاری دارید..." required></textarea>
+            <textarea name="request_text" placeholder="لطفاً توضیح دهید..." required></textarea>
           </div>
-
+      
         </div>
-
+      
         <div class="submit-row">
-          <button type="submit">ارسال درخواست</button>
+          <button type="submit" id="submitBtn">ارسال درخواست</button>
         </div>
-
-        <p class="form-note">اطلاعات شما محرمانه باقی می‌ماند و تنها برای پاسخ‌گویی استفاده می‌شود.</p>
-
+      
+        <p class="form-note" id="formMsg">اطلاعات شما محرمانه باقی می‌ماند.</p>
+      
       </form>
     </div>
   </section>
