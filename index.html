@@ -453,5 +453,49 @@
 
 </div>
 
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzoCEu55sD1q0F-NwD_Lst2Rwpjz45aDcCVsUX1ZFcXbWGrfCMhedqmQaDTOLmHh16x/exec'; // ← آدرس خودت را بگذار
+
+const form    = document.getElementById('confForm');
+const btn     = document.getElementById('submitBtn');
+const msgEl   = document.getElementById('formMsg');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  btn.disabled = true;
+  btn.textContent = 'در حال ارسال...';
+  msgEl.textContent = '';
+
+  const payload = {
+    full_name:    form.full_name.value.trim(),
+    phone:        form.phone.value.trim(),
+    email:        form.email.value.trim(),
+    organization: form.organization.value.trim(),
+    request_text: form.request_text.value.trim(),
+    user_agent:   navigator.userAgent
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',   // برای دور زدن CORS گوگل
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    });
+
+    msgEl.textContent = '✅ درخواست شما با موفقیت ثبت شد.';
+    msgEl.style.color = '#22d3ee';
+    form.reset();
+
+  } catch (err) {
+    msgEl.textContent = '❌ خطا در ارسال. لطفاً دوباره تلاش کنید.';
+    msgEl.style.color = '#ff6b6b';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'ارسال درخواست';
+  }
+});
+</script>
 </body>
 </html>
